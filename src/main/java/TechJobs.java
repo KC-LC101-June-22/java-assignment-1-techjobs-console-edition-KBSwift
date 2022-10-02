@@ -1,3 +1,6 @@
+import org.w3c.dom.ls.LSOutput;
+
+import javax.sound.midi.SysexMessage;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -119,7 +122,21 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        String lineSeparator = "*****";
+        //Makes sure there are results for user input first
+        if (someJobs.size() > 0) {
+            //Iterate over job positions
+            for (HashMap<String, String> job : someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+                System.out.println("\n" + lineSeparator);
+                //iterate over information from key/value pairs of each job entry with formatting
+                for (Map.Entry<String, String> jobColumn : job.entrySet()) {
+                    System.out.println(jobColumn.getKey() + ": " + jobColumn.getValue());
+                }
+                System.out.println(lineSeparator);
+            }
+        } else {
+            System.out.print("No Results");
+        }
     }
 }
